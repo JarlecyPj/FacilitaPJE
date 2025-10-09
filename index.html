@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FacilitaPje - Sistema de Peticionamento Eletrônico</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header e Menu de Navegação -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2><i class="fas fa-gavel"></i> FacilitaPje</h2>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">Sobre o Sistema</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#steps" class="nav-link">Passo a Passo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#tutorials" class="nav-link">Tutoriais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#faq" class="nav-link">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contato</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Seção Principal -->
+    <main>
+        <!-- Seção Home -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>FacilitaPje</h1>
+                    <h2>Sistema de Peticionamento Eletrônico</h2>
+                    <p>Simplifique o processo de peticionamento eletrônico com nosso guia completo e passo a passo detalhado.</p>
+                    <div class="hero-buttons">
+                        <a href="#steps" class="btn btn-primary">Começar Agora</a>
+                        <a href="#about" class="btn btn-secondary">Saiba Mais</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Sobre o Sistema -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Sobre o Sistema PJe</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>O que é o PJe?</h3>
+                        <p>O Processo Judicial Eletrônico (PJe) é um sistema informatizado que permite a tramitação de processos judiciais de forma totalmente digital, desde a distribuição até a conclusão.</p>
+                        
+                        <h3>Principais Benefícios:</h3>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-check"></i> Agilidade na tramitação processual</li>
+                            <li><i class="fas fa-check"></i> Redução de custos com papel e deslocamentos</li>
+                            <li><i class="fas fa-check"></i> Acesso 24/7 aos processos</li>
+                            <li><i class="fas fa-check"></i> Maior transparência e controle</li>
+                            <li><i class="fas fa-check"></i> Sustentabilidade ambiental</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Passo a Passo -->
+        <section id="steps" class="section">
+            <div class="container">
+                <h2 class="section-title">Passo a Passo do PJe</h2>
+                
+                <!-- Menu de Seleção de Tipo de Processo -->
+                <div class="process-type-selector">
+                    <h3>Selecione o tipo de processo:</h3>
+                    <div class="process-type-buttons">
+                        <button class="process-type-btn active" data-type="inicial">
+                            <i class="fas fa-file-plus"></i>
+                            <span>Como Fazer Inicial</span>
+                            <small>Processo de primeira instância</small>
+                        </button>
+                        <button class="process-type-btn" data-type="juntada">
+                            <i class="fas fa-paperclip"></i>
+                            <span>Juntada</span>
+                            <small>Adicionar documentos ao processo</small>
+                        </button>
+                        <button class="process-type-btn" data-type="consulta">
+                            <i class="fas fa-search"></i>
+                            <span>Consulta</span>
+                            <small>Consultar processos existentes</small>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Conteúdo do Tipo de Processo Selecionado -->
+                <div class="process-content">
+                    <!-- Conteúdo Inicial -->
+                    <div class="process-steps active" id="inicial-content">
+                        <h3>Como Fazer um Processo Inicial</h3>
+                        <p class="process-description">
+                            Siga os passos abaixo para criar um novo processo no PJe. Este guia visual irá te auxiliar em cada etapa do processo de peticionamento eletrônico.
+                        </p>
+                        <div class="image-gallery" id="inicial-gallery">
+                            <!-- As imagens serão carregadas dinamicamente via JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Conteúdo Juntada -->
+                    <div class="process-steps" id="juntada-content">
+                        <h3>Como Fazer Juntada de Documentos</h3>
+                        <p class="process-description">
+                            Aprenda como adicionar documentos a um processo já existente no PJe. Esta funcionalidade é essencial para complementar petições e anexar provas.
+                        </p>
+                        <div class="image-gallery" id="juntada-gallery">
+                            <!-- As imagens serão carregadas dinamicamente via JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Conteúdo Consulta -->
+                    <div class="process-steps" id="consulta-content">
+                        <h3>Como Consultar Processos</h3>
+                        <p class="process-description">
+                            Descubra como consultar e acompanhar o andamento dos seus processos no PJe. Aprenda a usar as ferramentas de busca e filtros disponíveis.
+                        </p>
+                        <div class="image-gallery" id="consulta-gallery">
+                            <!-- As imagens serão carregadas dinamicamente via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seção de Passos Gerais (mantida para referência) -->
+                <div class="general-steps">
+                    <h3>Passos Gerais do PJe</h3>
+                    <div class="steps-container">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Acesso ao Sistema</h3>
+                                <p>Entre no site do PJe do seu tribunal e faça login com seu certificado digital ou CPF.</p>
+                                <div class="step-details">
+                                    <p><strong>URL:</strong> https://pje.tjsp.jus.br/</p>
+                                    <p><strong>Certificado:</strong> A1 (arquivo) ou A3 (token/cartão)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Nova Petição</h3>
+                                <p>Clique em "Nova Petição" e selecione o tipo de processo desejado.</p>
+                                <div class="step-details">
+                                    <p><strong>Tipos:</strong> Ação, Recurso, Agravo, etc.</p>
+                                    <p><strong>Valor:</strong> Defina o valor da causa se aplicável</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Preenchimento dos Dados</h3>
+                                <p>Preencha as informações das partes, advogados e dados do processo.</p>
+                                <div class="step-details">
+                                    <p><strong>Partes:</strong> Autor, réu, terceiros</p>
+                                    <p><strong>Advogados:</strong> OAB e dados de contato</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Upload de Documentos</h3>
+                                <p>Anexe os documentos necessários em formato PDF.</p>
+                                <div class="step-details">
+                                    <p><strong>Formatos:</strong> PDF, DOC, DOCX</p>
+                                    <p><strong>Tamanho:</strong> Máximo 25MB por arquivo</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h3>Revisão e Envio</h3>
+                                <p>Revise todas as informações e envie a petição para distribuição.</p>
+                                <div class="step-details">
+                                    <p><strong>Verificação:</strong> Dados, documentos e assinatura</p>
+                                    <p><strong>Protocolo:</strong> Número gerado automaticamente</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">6</div>
+                            <div class="step-content">
+                                <h3>Acompanhamento</h3>
+                                <p>Acompanhe o andamento do processo através do sistema.</p>
+                                <div class="step-details">
+                                    <p><strong>Notificações:</strong> Email e sistema</p>
+                                    <p><strong>Prazos:</strong> Controle automático de prazos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Tutoriais -->
+        <section id="tutorials" class="section">
+            <div class="container">
+                <h2 class="section-title">Tutoriais em Vídeo</h2>
+                <div class="tutorials-grid">
+                    <div class="tutorial-card">
+                        <div class="tutorial-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h3>Primeiro Acesso</h3>
+                        <p>Como fazer o primeiro acesso ao sistema PJe e configurar seu perfil.</p>
+                        <button class="btn btn-outline" onclick="openVideoModal('videos/primeiro acesso/Primeiro acesso PJE.mp4', 'Primeiro Acesso ao PJe', 'Aprenda como fazer seu primeiro acesso ao sistema PJe e configurar seu perfil adequadamente.')">Assistir</button>
+                    </div>
+
+                    <div class="tutorial-card">
+                        <div class="tutorial-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Criando uma Petição</h3>
+                        <p>Passo a passo detalhado para criar sua primeira petição no sistema.</p>
+                        <a href="#" class="btn btn-outline">Assistir</a>
+                    </div>
+
+                    <div class="tutorial-card">
+                        <div class="tutorial-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <h3>Upload de Documentos</h3>
+                        <p>Como anexar documentos corretamente e evitar problemas.</p>
+                        <a href="#" class="btn btn-outline">Assistir</a>
+                    </div>
+
+                    <div class="tutorial-card">
+                        <div class="tutorial-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Consultando Processos</h3>
+                        <p>Como consultar e acompanhar o andamento dos seus processos.</p>
+                        <a href="#" class="btn btn-outline">Assistir</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção FAQ -->
+        <section id="faq" class="section">
+            <div class="container">
+                <h2 class="section-title">Perguntas Frequentes</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Qual certificado digital usar no PJe?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>O PJe aceita certificados digitais A1 (arquivo) e A3 (token ou cartão). Ambos devem ser emitidos por Autoridade Certificadora credenciada pela ICP-Brasil.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Posso anexar documentos em outros formatos?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>O sistema aceita principalmente arquivos PDF, mas também DOC e DOCX. Recomenda-se sempre converter para PDF para garantir a integridade do documento.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Como acompanhar o andamento do processo?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Você pode acompanhar através do próprio sistema PJe, onde receberá notificações por email sobre movimentações importantes no processo.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>O que fazer se esquecer a senha?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Use a opção "Esqueci minha senha" na tela de login. O sistema enviará instruções para redefinição por email ou SMS.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Contato -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Contato e Suporte</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Precisa de Ajuda?</h3>
+                        <p>Nossa equipe está pronta para ajudar você com dúvidas sobre o sistema PJe.</p>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>suporte@facilitapje.com.br</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Telefone</h4>
+                                <p>(11) 99999-9999</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Horário de Atendimento</h4>
+                                <p>Segunda a Sexta: 8h às 18h</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3>Envie sua Mensagem</h3>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" placeholder="Seu Nome" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Seu Email" required>
+                            </div>
+                            <div class="form-group">
+                                <select required>
+                                    <option value="">Selecione o Assunto</option>
+                                    <option value="duvida">Dúvida sobre o Sistema</option>
+                                    <option value="tecnico">Problema Técnico</option>
+                                    <option value="sugestao">Sugestão</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para Visualização de Imagens -->
+    <div id="imageModal" class="image-modal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <button class="modal-nav modal-prev" id="modalPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="modal-nav modal-next" id="modalNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="">
+                <div class="modal-image-info">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalDescription"></p>
+                    <div class="modal-counter">
+                        <span id="modalCounter"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Visualização de Vídeos -->
+    <div id="videoModal" class="video-modal">
+        <div class="modal-overlay" id="videoModalOverlay"></div>
+        <div class="modal-content video-modal-content">
+            <button class="modal-close" id="videoModalClose">&times;</button>
+            <div class="video-container">
+                <video id="modalVideo" controls preload="metadata">
+                    <source src="" type="video/mp4">
+                    Seu navegador não suporta a reprodução de vídeos.
+                </video>
+                <div class="video-info">
+                    <h3 id="videoTitle"></h3>
+                    <p id="videoDescription"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FacilitaPje</h3>
+                    <p>Simplificando o peticionamento eletrônico para advogados e cidadãos.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="#about">Sobre o Sistema</a></li>
+                        <li><a href="#steps">Passo a Passo</a></li>
+                        <li><a href="#tutorials">Tutoriais</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>suporte@facilitapje.com.br</p>
+                    <p>(11) 99999-9999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FacilitaPje. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
