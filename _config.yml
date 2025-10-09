@@ -1,0 +1,60 @@
+# GitHub Pages Configuration
+title: FacilitaPJE
+description: Sistema de Peticionamento Eletrônico - Guia completo para uso do PJe
+author: JarlecyPj
+baseurl: "/FacilitaPJE"
+url: "https://jarlecypj.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  tutorials:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "tutorials"
+    values:
+      layout: "tutorial"
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
+  - .gitignore
+  - .git
+  - .vscode
+  - .idea
+
+# Include
+include:
+  - _pages
+  - _tutorials
+
+# Site settings
+timezone: America/Sao_Paulo
+encoding: utf-8
