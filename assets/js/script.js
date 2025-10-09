@@ -77,18 +77,28 @@ faqItems.forEach(item => {
     });
 });
 
+// EmailJS Configuration
+(function() {
+    // Initialize EmailJS
+    emailjs.init("YOUR_PUBLIC_KEY"); // Será substituído pela chave real
+})();
+
 // Form submission handler
-const contactForm = document.querySelector('.contact-form form');
+const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
+        // Get form elements
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const btnLoading = document.getElementById('btn-loading');
+        
         // Get form data
-        const formData = new FormData(contactForm);
-        const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
-        const subject = contactForm.querySelector('select').value;
-        const message = contactForm.querySelector('textarea').value;
+        const name = document.getElementById('user_name').value;
+        const email = document.getElementById('user_email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
         
         // Basic validation
         if (!name || !email || !subject || !message) {
@@ -103,9 +113,36 @@ if (contactForm) {
             return;
         }
         
-        // Simulate form submission
-        showNotification('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
-        contactForm.reset();
+        // Show loading state
+        submitBtn.disabled = true;
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'inline';
+        
+        // Prepare email data
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            subject: subject,
+            message: message,
+            to_email: 'suporte.facilita.pje@gmail.com'
+        };
+        
+        // Send email using EmailJS
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+            .then(function(response) {
+                console.log('Email enviado com sucesso!', response.status, response.text);
+                showNotification('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
+                contactForm.reset();
+            }, function(error) {
+                console.error('Erro ao enviar email:', error);
+                showNotification('Erro ao enviar mensagem. Tente novamente ou entre em contato por telefone.', 'error');
+            })
+            .finally(function() {
+                // Reset button state
+                submitBtn.disabled = false;
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+            });
     });
 }
 

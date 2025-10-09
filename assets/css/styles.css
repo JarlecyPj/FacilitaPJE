@@ -737,6 +737,47 @@ body {
     min-height: 120px;
 }
 
+/* Form Loading States */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+#btn-loading {
+    display: none;
+}
+
+#btn-loading i {
+    margin-right: 8px;
+}
+
+/* Form Success/Error States */
+.form-group.success input,
+.form-group.success select,
+.form-group.success textarea {
+    border-color: #27ae60;
+    box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.2);
+}
+
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+}
+
+.form-error {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.form-group.error .form-error {
+    display: block;
+}
+
 /* Footer */
 .footer {
     background: #2c3e50;
