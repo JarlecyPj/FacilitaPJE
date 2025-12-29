@@ -41,3 +41,7 @@ bower_components/
 # Arquivos de build
 dist/
 build/
+
+# Arquivos de release/backup
+*.zip
+releases/
