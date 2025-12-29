@@ -77,8 +77,6 @@ faqItems.forEach(item => {
     });
 });
 
-// Form removed: contact form and EmailJS submission were removed intentionally.
-// Contact is handled via direct email / WhatsApp links in the page markup.
 
 // Notification system
 function showNotification(message, type = 'info') {
