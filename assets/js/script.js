@@ -77,46 +77,8 @@ faqItems.forEach(item => {
     });
 });
 
-// EmailJS Configuration
-(function() {
-    // Use a Public Key válido do painel do EmailJS
-    emailjs.init("zwzd4fjtcXf04AHGc"); 
-})();
-
-// Form submission handler
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const submitBtn = document.getElementById('submit-btn');
-        const btnText = document.getElementById('btn-text');
-        const btnLoading = document.getElementById('btn-loading');
-
-        // Mostrar estado de carregamento
-        submitBtn.disabled = true;
-        btnText.style.display = 'none';
-        btnLoading.style.display = 'inline';
-
-        // Enviar usando EmailJS (pega os valores direto do form)
-        emailjs.sendForm("service_6jsw0or", "template_rmaafxd", contactForm)
-            .then(() => {
-                console.log("Email enviado com sucesso!");
-                showNotification("Mensagem enviada com sucesso! Entraremos em contato em breve.", "success");
-                contactForm.reset();
-            })
-            .catch((error) => {
-                console.error("Erro ao enviar:", error);
-                showNotification("Erro ao enviar mensagem. Verifique a configuração.", "error");
-            })
-            .finally(() => {
-                // Resetar estado do botão
-                submitBtn.disabled = false;
-                btnText.style.display = 'inline';
-                btnLoading.style.display = 'none';
-            });
-    });
-}
+// Form removed: contact form and EmailJS submission were removed intentionally.
+// Contact is handled via direct email / WhatsApp links in the page markup.
 
 // Notification system
 function showNotification(message, type = 'info') {
