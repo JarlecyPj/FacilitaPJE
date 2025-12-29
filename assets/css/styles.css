@@ -1209,6 +1209,76 @@ html {
     scroll-padding-top: 80px;
 }
 
+/* Section Navigation Buttons */
+.section-navigation {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10000;
+}
+
+.nav-arrow {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.nav-arrow:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.nav-arrow:active:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.nav-arrow:disabled,
+.nav-arrow[style*="pointer-events: none"] {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .section-navigation {
+        bottom: 80px;
+        right: 16px;
+    }
+    
+    .nav-arrow {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-navigation {
+        bottom: 70px;
+        right: 12px;
+        gap: 8px;
+    }
+    
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+}
+
 /* WhatsApp floating button */
 .whatsapp-float {
     position: fixed;

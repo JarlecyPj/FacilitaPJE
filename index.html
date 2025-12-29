@@ -72,8 +72,8 @@
                     <h2>FacilitaPje — Seu guia para os sistemas judiciais eletrônicos.</h2>
                     <p>O FacilitaPje é uma plataforma criada para orientar e capacitar usuários no uso dos sistemas judiciais eletrônicos, tornando o acesso à Justiça mais simples e eficiente</p>
                     <div class="hero-buttons">
-                        <a href="#steps" class="btn btn-primary">Começar Agora</a>
-                        <a href="#about" class="btn btn-secondary">Saiba Mais</a>
+                        <a href="#steps" class="btn btn-primary" onclick="event.preventDefault(); showSection('steps');">Começar Agora</a>
+                        <a href="#about" class="btn btn-secondary" onclick="event.preventDefault(); showSection('about');">Saiba Mais</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -457,6 +457,17 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    
+    <!-- Botões de Navegação entre Seções -->
+    <div class="section-navigation">
+        <button class="nav-arrow nav-prev" id="sectionNavPrev" aria-label="Seção anterior">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <button class="nav-arrow nav-next" id="sectionNavNext" aria-label="Próxima seção">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
+    
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/5527992595402" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat no WhatsApp">
         <i class="fab fa-whatsapp"></i>

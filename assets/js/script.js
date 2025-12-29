@@ -45,6 +45,11 @@ function showSection(sectionId) {
     if (activeLink) {
         activeLink.classList.add('active');
     }
+    
+    // Update section navigation buttons
+    if (typeof updateSectionNavigationButtons === 'function') {
+        updateSectionNavigationButtons();
+    }
 }
 
 // Handle navigation clicks
@@ -324,6 +329,36 @@ document.addEventListener('DOMContentLoaded', () => {
             videoModalClose.addEventListener('click', closeVideoModal);
             videoModalOverlay.addEventListener('click', closeVideoModal);
         }
+        
+        // Section Navigation Buttons
+        const sectionNavPrev = document.getElementById('sectionNavPrev');
+        const sectionNavNext = document.getElementById('sectionNavNext');
+        
+        if (sectionNavPrev) {
+            sectionNavPrev.addEventListener('click', navigateToPrevSection);
+        }
+        
+        if (sectionNavNext) {
+            sectionNavNext.addEventListener('click', navigateToNextSection);
+        }
+        
+        // Update navigation buttons when section changes
+        const sectionObserver = new MutationObserver(() => {
+            if (typeof updateSectionNavigationButtons === 'function') {
+                updateSectionNavigationButtons();
+            }
+        });
+        
+        sections.forEach(section => {
+            sectionObserver.observe(section, { attributes: true, attributeFilter: ['class'] });
+        });
+        
+        // Initial update of navigation buttons
+        setTimeout(() => {
+            if (typeof updateSectionNavigationButtons === 'function') {
+                updateSectionNavigationButtons();
+            }
+        }, 100);
     } catch (error) {
         console.error('Erro ao inicializar a página:', error);
     }
@@ -606,7 +641,7 @@ function openImageModal(imageIndex, processType) {
             document.body.style.overflow = 'hidden';
             
             // Update navigation buttons visibility
-            updateNavigationButtons();
+            updateModalNavigationButtons();
         }
     } catch (error) {
         console.error('Erro ao abrir modal de imagem:', error);
@@ -657,21 +692,21 @@ function updateModalContent() {
         modalDescription.textContent = image.description;
         modalCounter.textContent = `${currentImageIndex + 1} de ${currentImages.length}`;
         
-        updateNavigationButtons();
+        updateModalNavigationButtons();
     }
 }
 
-// Function to update navigation buttons visibility
-function updateNavigationButtons() {
+// Function to update modal navigation buttons visibility
+function updateModalNavigationButtons() {
     const prevBtn = document.getElementById('modalPrev');
     const nextBtn = document.getElementById('modalNext');
     
     if (currentImages.length <= 1) {
-        prevBtn.style.display = 'none';
-        nextBtn.style.display = 'none';
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
     } else {
-        prevBtn.style.display = 'flex';
-        nextBtn.style.display = 'flex';
+        if (prevBtn) prevBtn.style.display = 'flex';
+        if (nextBtn) nextBtn.style.display = 'flex';
     }
 }
 
@@ -753,6 +788,60 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Section Navigation with Arrow Buttons
+const sectionOrder = ['home', 'about', 'steps', 'tutorials', 'faq', 'contact'];
+
+function getCurrentSectionIndex() {
+    const activeSection = document.querySelector('.section.active');
+    if (!activeSection) return 0;
+    const sectionId = activeSection.getAttribute('id');
+    return sectionOrder.indexOf(sectionId);
+}
+
+function navigateToNextSection() {
+    const currentIndex = getCurrentSectionIndex();
+    if (currentIndex < sectionOrder.length - 1) {
+        showSection(sectionOrder[currentIndex + 1]);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
+function navigateToPrevSection() {
+    const currentIndex = getCurrentSectionIndex();
+    if (currentIndex > 0) {
+        showSection(sectionOrder[currentIndex - 1]);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
+function updateSectionNavigationButtons() {
+    const currentIndex = getCurrentSectionIndex();
+    const prevBtn = document.getElementById('sectionNavPrev');
+    const nextBtn = document.getElementById('sectionNavNext');
+    
+    if (prevBtn) {
+        if (currentIndex === 0) {
+            prevBtn.style.opacity = '0.3';
+            prevBtn.style.pointerEvents = 'none';
+        } else {
+            prevBtn.style.opacity = '1';
+            prevBtn.style.pointerEvents = 'auto';
+        }
+    }
+    
+    if (nextBtn) {
+        if (currentIndex === sectionOrder.length - 1) {
+            nextBtn.style.opacity = '0.3';
+            nextBtn.style.pointerEvents = 'none';
+        } else {
+            nextBtn.style.opacity = '1';
+            nextBtn.style.pointerEvents = 'auto';
+        }
+    }
+}
+
+
+
 // Export functions for potential external use
 window.FacilitaPje = {
     showSection,
@@ -762,6 +851,8 @@ window.FacilitaPje = {
     switchProcessType,
     loadImagesForProcessType,
     openVideoModal,
-    closeVideoModal
+    closeVideoModal,
+    navigateToNextSection,
+    navigateToPrevSection
 };
 
