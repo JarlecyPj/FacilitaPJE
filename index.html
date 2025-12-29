@@ -69,8 +69,8 @@
             <div class="hero">
                 <div class="hero-content">
                     <h1>FacilitaPje</h1>
-                    <h2>FacilitaPJe — Seu guia para os sistemas judiciais eletrônicos.</h2>
-                    <p>O FacilitaPJe é uma plataforma criada para orientar e capacitar usuários no uso dos sistemas judiciais eletrônicos, tornando o acesso à Justiça mais simples e eficiente</p>
+                    <h2>FacilitaPje — Seu guia para os sistemas judiciais eletrônicos.</h2>
+                    <p>O FacilitaPje é uma plataforma criada para orientar e capacitar usuários no uso dos sistemas judiciais eletrônicos, tornando o acesso à Justiça mais simples e eficiente</p>
                     <div class="hero-buttons">
                         <a href="#steps" class="btn btn-primary">Começar Agora</a>
                         <a href="#about" class="btn btn-secondary">Saiba Mais</a>
@@ -270,7 +270,7 @@
                         </div>
                         <h3>Criando uma Petição</h3>
                         <p>Passo a passo detalhado para criar sua primeira petição no sistema.</p>
-                        <button class="btn btn-outline" disabled title="Vídeo em breve">Em Breve</button>
+                        <button class="btn btn-outline" disabled title="Vídeo em breve" aria-label="Vídeo em breve - Criando uma Petição">Em Breve</button>
                     </div>
 
                     <div class="tutorial-card">
@@ -279,7 +279,7 @@
                         </div>
                         <h3>Upload de Documentos</h3>
                         <p>Como anexar documentos corretamente e evitar problemas.</p>
-                        <button class="btn btn-outline" disabled title="Vídeo em breve">Em Breve</button>
+                        <button class="btn btn-outline" disabled title="Vídeo em breve" aria-label="Vídeo em breve - Upload de Documentos">Em Breve</button>
                     </div>
 
                     <div class="tutorial-card">
@@ -288,7 +288,7 @@
                         </div>
                         <h3>Consultando Processos</h3>
                         <p>Como consultar e acompanhar o andamento dos seus processos.</p>
-                        <button class="btn btn-outline" disabled title="Vídeo em breve">Em Breve</button>
+                        <button class="btn btn-outline" disabled title="Vídeo em breve" aria-label="Vídeo em breve - Consultando Processos">Em Breve</button>
                     </div>
                 </div>
             </div>
@@ -389,15 +389,15 @@
     <div id="imageModal" class="image-modal">
         <div class="modal-overlay" id="modalOverlay"></div>
         <div class="modal-content">
-            <button class="modal-close" id="modalClose">&times;</button>
-            <button class="modal-nav modal-prev" id="modalPrev">
+            <button class="modal-close" id="modalClose" aria-label="Fechar modal">&times;</button>
+            <button class="modal-nav modal-prev" id="modalPrev" aria-label="Imagem anterior">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <button class="modal-nav modal-next" id="modalNext">
+            <button class="modal-nav modal-next" id="modalNext" aria-label="Próxima imagem">
                 <i class="fas fa-chevron-right"></i>
             </button>
             <div class="modal-image-container">
-                <img id="modalImage" src="" alt="">
+                <img id="modalImage" src="" alt="Imagem do tutorial">
                 <div class="modal-image-info">
                     <h3 id="modalTitle"></h3>
                     <p id="modalDescription"></p>
@@ -413,7 +413,7 @@
     <div id="videoModal" class="video-modal">
         <div class="modal-overlay" id="videoModalOverlay"></div>
         <div class="modal-content video-modal-content">
-            <button class="modal-close" id="videoModalClose">&times;</button>
+            <button class="modal-close" id="videoModalClose" aria-label="Fechar vídeo">&times;</button>
             <div class="video-container">
                 <video id="modalVideo" controls preload="metadata">
                     <source src="" type="video/mp4">
